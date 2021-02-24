@@ -63,7 +63,12 @@
   "eslintConfig": {
     "extends": [
       "wesbos"
-    ]
+    ],
+    "rules": {
+      "react/prop-types": [
+        "skipUndeclared"
+      ]
+    }
   },
   "jest": {
     "setupFilesAfterEnv": [
