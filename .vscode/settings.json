@@ -6,6 +6,9 @@
     "titleBar.inactiveBackground": "#FFC600CC"
   },
   "eslint.alwaysShowStatus": true,
+  "[javascript]": {
+    "editor.formatOnSave": true 
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
