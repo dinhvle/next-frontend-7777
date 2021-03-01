@@ -12,5 +12,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "editor.tabSize": 2
 }
