@@ -4,6 +4,7 @@ import Form from '../components/styles/Form';
 import DisplayError from '../components/ErrorMessage';
 import { useMutation } from '@apollo/client';
 import { ALL_PRODUCTS_QUERY } from './Products';
+import Router from 'next/router';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
@@ -50,8 +51,12 @@ export default function CreateProduct() {
       onSubmit={async (e) => {
         e.preventDefault();
         // Submit the inputfields to the backend:
-        await createProduct();
+        const res = await createProduct();
         clearForm();
+        // Go to product's page
+        Router.push({
+          pathname: `/product/${res.data.createProduct.id}`,
+        });
       }}
     >
       <DisplayError error={error} />
