@@ -3,6 +3,7 @@ import useForm from '../lib/useForm';
 import Form from '../components/styles/Form';
 import DisplayError from '../components/ErrorMessage';
 import { useMutation } from '@apollo/client';
+import { ALL_PRODUCTS_QUERY } from './Products';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
@@ -41,6 +42,7 @@ export default function CreateProduct() {
     CREATE_PRODUCT_MUTATION,
     {
       variables: inputs,
+      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
     }
   );
   return (
