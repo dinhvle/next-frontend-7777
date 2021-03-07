@@ -44,7 +44,13 @@ export default function UpdateProduct({ id }) {
 
   // 2. We need to get the mutation to update the product
   // Create some state for form inputs:
-  const { inputs, handleChange, clearForm, resetForm } = useForm(data?.Product);
+  const { inputs, handleChange, clearForm, resetForm } = useForm(
+    data?.Product || {
+      name: '',
+      description: '',
+      price: '',
+    }
+  );
   const [
     updateProduct,
     { data: updateData, error: updateError, loading: updateLoading },
