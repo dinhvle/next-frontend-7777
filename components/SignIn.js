@@ -49,7 +49,7 @@ export default function SignIn() {
       <DisplayError error={error} />
       <fieldset>
         <label htmlFor="email">
-          email
+          Email
           <input
             type="email"
             name="email"
