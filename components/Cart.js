@@ -6,7 +6,6 @@ import formatMoney from '../lib/formatMoney';
 import { useUser } from './User';
 import calcTotalPrice from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
-import { useRef, useEffect } from 'react';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -49,31 +48,8 @@ export default function Cart() {
   const me = useUser();
   const { cartOpen, closeCart } = useCart();
   if (!me) return null;
-
-  // Outside Cart click detection
-  const cartRef = useRef();
-  const handleClickOutside = (event) => {
-    if (cartRef.current.contains(event.target)) {
-      // inside click
-      return;
-    }
-    // outside click
-    closeCart();
-  };
-  useEffect(() => {
-    if (cartOpen) {
-      document.addEventListener('click', handleClickOutside);
-    } else {
-      document.removeEventListener('click', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [cartOpen]);
-
   return (
-    <CartStyles ref={cartRef} open={cartOpen}>
+    <CartStyles open={cartOpen}>
       <header>
         <Supreme>{me.name}'s Cart</Supreme>
         <CloseButton onClick={closeCart}>&times;</CloseButton>
