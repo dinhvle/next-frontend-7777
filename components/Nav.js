@@ -6,7 +6,7 @@ import { useUser } from './User';
 
 export default function Nav() {
   const user = useUser();
-  const { openCart } = useCart();
+  const { toggleCart } = useCart();
   return (
     <NavStyles>
       <Link href="/products">Products</Link>
@@ -16,7 +16,7 @@ export default function Nav() {
           <Link href="/orders">Orders</Link>
           <Link href="/account">Account</Link>
           <SignOut />
-          <button type="button" onClick={openCart}>
+          <button type="button" onClick={toggleCart}>
             My Cart
           </button>
         </>
