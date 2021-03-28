@@ -1,7 +1,7 @@
 import { useLazyQuery } from '@apollo/client';
 import { resetIdCounter, useCombobox } from 'downshift';
 import gql from 'graphql-tag';
-import { debounce } from 'lodash';
+import debounce from 'lodash.debounce';
 import { useRouter } from 'next/dist/client/router';
 import { SearchStyles, DropDown, DropDownItem } from './styles/DropDown';
 
